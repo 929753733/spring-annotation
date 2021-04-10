@@ -1,6 +1,7 @@
 package com.ly.config;
 
 import com.ly.bean.Color;
+import com.ly.bean.ColorFactoryBean;
 import com.ly.bean.Person;
 import com.ly.bean.Red;
 import com.ly.condition.LinuxCondition;
@@ -36,5 +37,10 @@ public class MainConfig2 {
     @Bean(value = "linus")
     public Person person02() {
         return new Person("linus", 48);
+    }
+
+    @Bean
+    public ColorFactoryBean colorFactoryBean() {
+        return new ColorFactoryBean();
     }
 }

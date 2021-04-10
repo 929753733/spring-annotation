@@ -19,6 +19,12 @@ public class IOCTest {
     public void testImport() {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
         printBeans(applicationContext);
+
+        // 工厂Bean获取的是调用FactoryBean.getObject()创建的对象。
+        Object colorFactoryBean = applicationContext.getBean("colorFactoryBean");
+        Object colorFactoryBean2 = applicationContext.getBean("colorFactoryBean");
+        System.out.println("bean的类型：" + colorFactoryBean.getClass());
+        System.out.println(colorFactoryBean == colorFactoryBean2);
     }
 
     private void printBeans(AnnotationConfigApplicationContext applicationContext) {

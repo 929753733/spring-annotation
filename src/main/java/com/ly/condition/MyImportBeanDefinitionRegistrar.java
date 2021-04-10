@@ -21,7 +21,7 @@ public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegi
         boolean definition = beanDefinitionRegistry.containsBeanDefinition("com.ly.bean.Red");
         boolean definition2 = beanDefinitionRegistry.containsBeanDefinition("com.ly.bean.Blue");
         if (definition && definition2) {
-            // 指定bean名
+            // 指定Bean定义信息：Bean的类型，Bean。。。
             RootBeanDefinition rootBeanDefinition = new RootBeanDefinition(RainBow.class);
             beanDefinitionRegistry.registerBeanDefinition("rainBow", rootBeanDefinition);
         }
