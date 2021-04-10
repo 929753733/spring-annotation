@@ -24,7 +24,12 @@ public class IOCTest {
         Object colorFactoryBean = applicationContext.getBean("colorFactoryBean");
         Object colorFactoryBean2 = applicationContext.getBean("colorFactoryBean");
         System.out.println("bean的类型：" + colorFactoryBean.getClass());
+        System.out.println("=====");
         System.out.println(colorFactoryBean == colorFactoryBean2);
+
+        // 要获取工厂Bean本身，我们需要在id前面加一个&。添加上“&”，可以获得colorFactoryBean本身，而不是getObject()创建的对象。
+        Object bean4 = applicationContext.getBean("&colorFactoryBean");
+        System.out.println(bean4.getClass());
     }
 
     private void printBeans(AnnotationConfigApplicationContext applicationContext) {
