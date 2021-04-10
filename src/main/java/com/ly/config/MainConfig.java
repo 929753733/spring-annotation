@@ -33,6 +33,6 @@ public class MainConfig {
     public Person person() {
         return new Person("lisi", 20);
     }
-    
+
 
 }
