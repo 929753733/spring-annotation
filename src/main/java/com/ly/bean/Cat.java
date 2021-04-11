@@ -1,7 +1,10 @@
 package com.ly.bean;
 
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @since 2021/4/10
  */
 @Component
-public class Cat implements InitializingBean, DisposableBean {
+public class Cat implements InitializingBean, DisposableBean, ApplicationContextAware {
 
     public Cat() {
 
@@ -17,11 +20,16 @@ public class Cat implements InitializingBean, DisposableBean {
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("cat...destroy...");
+        System.out.println("++++++++++++++++cat...destroy...");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("cat...afterPropertiesSet...");
+        System.out.println("++++++++++++++++cat...afterPropertiesSet...");
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println("++++++++++++++++" + applicationContext);
     }
 }
